@@ -1,5 +1,6 @@
 body {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
@@ -10,21 +11,70 @@ body {
     background-color: #f8fafc;
 }
 
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+.site-title-image {
+    max-height: 72px;
+    width: auto;
+    display: block;
+}
+
+.page-layout {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr;
+    gap: 1.5rem;
+    flex: 1;
+    min-height: 0;
+    padding: 1.5rem;
+}
+
+.site-nav {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+    position: sticky;
+    top: calc(1rem + 80px);
+    align-self: start;
+}
+
+.site-nav a {
+    display: block;
+    color: #0f172a;
+    text-decoration: none;
+    margin: 0.75rem 0;
+    font-weight: 600;
+}
+
+.site-nav a:hover {
+    color: #2563eb;
+}
+
+main#main {
+    min-height: 0;
+    min-width: 0;
+}
+
 .logo {
     grid-area: logo;
     padding: 10px;
     border: 1px solid #ccc;
-}
-
-.header-image {
-    grid-area: header;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-.header-image img {
-    width: 100%;
-    height: auto;
 }
 
 .main-nav {
