@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake:wght@400;600;700&display=swap');
+
 body {
     display: flex;
     flex-direction: column;
@@ -56,6 +58,16 @@ body {
     padding: 0.5rem 0;
     border: none;
     box-sizing: border-box;
+    font-family: 'Eagle Lake', cursive;
+}
+
+.site-nav a {
+    display: block;
+    color: #e3ccff;
+    text-decoration: none;
+    margin: 0.75rem 0;
+    font-weight: 600;
+    font-family: 'Eagle Lake', cursive;
 }
 
 .page-layout {
@@ -68,7 +80,7 @@ body {
 }
 
 .site-nav {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(0, 0, 0, 0.92);
     padding: 1rem;
     border-radius: 0.75rem;
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
