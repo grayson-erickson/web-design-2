@@ -4,6 +4,7 @@ body {
     min-height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    color: #e3ccff;
     background-image: url("../static/svg/background-for-site.svg");
     background-size: cover;
     background-position: center center;
@@ -30,9 +31,13 @@ body {
 }
 
 .site-title-image {
-    max-height: 72px;
     width: auto;
+    max-width: 100%;
+    max-height: 120px;
+    height: auto;
     display: block;
+    object-fit: contain;
+    flex: 1 1 320px;
 }
 
 .page-layout {
@@ -56,14 +61,14 @@ body {
 
 .site-nav a {
     display: block;
-    color: #0f172a;
+    color: #e3ccff;
     text-decoration: none;
     margin: 0.75rem 0;
     font-weight: 600;
 }
 
 .site-nav a:hover {
-    color: #2563eb;
+    color: #c4b5fd;
 }
 
 main#main {
