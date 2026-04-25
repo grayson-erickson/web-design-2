@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Grayson E — Basic Homepage for Web Design II (Evergreen State College class)</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+TEST
+<script type="text/markdown">
+# Hello world
+
+This is markdown embedded in HTML.
+
+* cool
+* xtra cool
+* tim pool dying in a pool of his own urine and shame cool
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("script[type='text/markdown']").forEach(md => {
+      const html = marked(md.textContent);
+      const container = document.createElement("div");
+      container.innerHTML = html;
+      md.parentNode.replaceChild(container, md);
+    });
+  });
+</script>
+</body>
+</html>
