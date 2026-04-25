@@ -1,0 +1,9 @@
+Week 5:
+
+To try out web fonts that you host from your subdomain, check out this short tutorial at CSS Tricks: https://css-tricks.com/snippets/css/using-font-faceLinks to an external site.. I've uploaded four weights of Futura LT, in WOFF2 and WOFF, for you to experiment with.
+
+Also try out Google Fonts, and explore subsets to reduce the page weight.
+
+In a breakout room, work on your home page, or a new page, applying type in weights and styles. Also, use grid to make a different layout for larger screens, using a media query with a breakpoint that targets larger screens. Give and get help from your peers in the breakout room.
+
+Have fun, and make sure to post a description of what you did and challenges you encountered.
