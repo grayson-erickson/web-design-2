@@ -18,7 +18,7 @@ body {
     z-index: 100;
     background: transparent;
     border-bottom: none;
-    padding: 0.75rem 0;
+    padding: 0;
 }
 
 .site-header .container {
@@ -27,9 +27,13 @@ body {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    padding: 1.5rem 1rem;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 1.5rem 1.25rem;
     background: rgba(0, 0, 0, 0.95);
-    border-radius: 1rem;
+    border-radius: 0;
     box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
     flex-wrap: wrap;
 }
@@ -49,6 +53,9 @@ body {
     text-align: center;
     width: 100%;
     color: #e3ccff;
+    padding: 0.5rem 0;
+    border: none;
+    box-sizing: border-box;
 }
 
 .page-layout {
