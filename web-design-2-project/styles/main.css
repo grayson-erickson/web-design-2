@@ -1,13 +1,13 @@
 body {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas:
-        "logo header"
-        "nav content";
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    background-image: url("../static/svg/background-for-site.svg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #f8fafc;
 }
 
 .logo {
