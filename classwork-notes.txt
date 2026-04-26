@@ -7,3 +7,7 @@ Also try out Google Fonts, and explore subsets to reduce the page weight.
 In a breakout room, work on your home page, or a new page, applying type in weights and styles. Also, use grid to make a different layout for larger screens, using a media query with a breakpoint that targets larger screens. Give and get help from your peers in the breakout room.
 
 Have fun, and make sure to post a description of what you did and challenges you encountered.
+
+---
+
+Cleanup note: Needs to be fixed for phone displays; left-hand nav should collapse to menu selector on phone
