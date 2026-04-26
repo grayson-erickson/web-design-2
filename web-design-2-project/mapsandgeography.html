@@ -36,11 +36,11 @@
       <p>{start geographical info}</p>
       <p>Border map of Verdenzye. Spellings used are archaic.</p>
       <div class="map-preview">
-        <img src="../web-design-1-project/images/map1.png" alt="Verdenzye border map" class="thumb">
+        <img src="../web-design-1-project/images/map1.png" alt="Verdenzye border map" class="thumb" data-caption="Border map of Verdenzye">
       </div>
       <p>Biome map version.</p>
       <div class="map-preview">
-        <img src="../web-design-1-project/images/Known Map of Verdenzya (1).jpg" alt="Verdenzye biome map" class="thumb">
+        <img src="../web-design-1-project/images/Known Map of Verdenzya (1).jpg" alt="Verdenzye biome map" class="thumb" data-caption="Biome map of Verdenzye">
       </div>
       <p><strong>Genesye</strong> [gen-ess-ee-eh]: The origin continent for the sapient residents of the planet, airdropped by an ancient spacefaring culture millennia ago. It was chosen due to its abundant resources and rivers and lakes. It is revered as the cultural and scientific center for all known countries.</p>
       <p><strong>Omelye</strong>: The second settled continent, known for its fishing and farms. The central lake has many boat-cities, a trait also seen on the eastern coastline. Despite its age, it's still quite rural and lightly settled due to much of the arable land being owned by long-established farming families and clans.</p>
@@ -57,6 +57,44 @@
       <p><strong>Trane</strong> [trah-neh]: The mostly recently discovered continent in the far south. What little has been explored has been a massive nitrogen (dry-ice) desert. Right now, it's mostly just teams of explorers for various government and frontier foundations.</p>
     </main>
   </div>
+
+  <div class="map-overlay" id="mapOverlay" aria-hidden="true">
+    <div>
+      <img id="mapOverlayImage" src="" alt="Expanded map">
+      <div class="caption" id="mapOverlayCaption"></div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var overlay = document.getElementById('mapOverlay');
+      var overlayImage = document.getElementById('mapOverlayImage');
+      var caption = document.getElementById('mapOverlayCaption');
+      var previews = document.querySelectorAll('.map-preview img.thumb');
+
+      previews.forEach(function(img) {
+        img.addEventListener('click', function() {
+          overlayImage.src = img.src;
+          overlayImage.alt = img.alt;
+          caption.textContent = img.dataset.caption || img.alt;
+          overlay.classList.add('active');
+          overlay.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      overlay.addEventListener('click', function() {
+        overlay.classList.remove('active');
+        overlay.setAttribute('aria-hidden', 'true');
+        overlayImage.src = '';
+      });
+
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && overlay.classList.contains('active')) {
+          overlay.click();
+        }
+      });
+    })();
+  </script>
 
   <footer class="site-footer">
     <div class="container">

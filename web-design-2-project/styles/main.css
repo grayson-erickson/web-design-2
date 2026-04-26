@@ -1,17 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake:wght@400;600;700&family=Julee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake:wght@400;600;700&family=Alegreya&display=swap');
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    font-family: 'Julee', cursive;
+    font-family: 'Alegreya', cursive;
     color: #e3ccff;
     background-image: url("../static/svg/background-for-site.svg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #f8fafc;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover,
+A:focus,
+a:active {
+    color: #c4b5fd;
 }
 
 .site-header {
@@ -63,7 +74,7 @@ body {
 
 .site-nav a {
     display: block;
-    color: #e3ccff;
+    color: #ffffff;
     text-decoration: none;
     margin: 0.75rem 0;
     font-weight: 600;
@@ -97,8 +108,58 @@ body {
     font-weight: 600;
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-nav a:focus,
+.site-nav a:active {
     color: #c4b5fd;
+}
+
+.map-preview {
+    max-width: 420px;
+    margin: 1rem auto;
+    cursor: zoom-in;
+}
+
+.map-preview img.thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.75rem;
+    border: 2px solid rgba(227, 204, 255, 0.65);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.16);
+}
+
+.map-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 300;
+    cursor: zoom-out;
+}
+
+.map-overlay.active {
+    display: flex;
+}
+
+.map-overlay img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.map-overlay .caption {
+    margin-top: 1rem;
+    color: #f8f8ff;
+    text-align: center;
+    font-size: 1rem;
+    max-width: 900px;
 }
 
 main#main {
@@ -106,9 +167,117 @@ main#main {
     min-width: 0;
 }
 
+main#main table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.5rem 0;
+    background: transparent;
+    border-radius: 0.85rem;
+    overflow: hidden;
+}
+
+main#main table tr {
+    background: rgba(0, 0, 0, 0.88);
+}
+
+main#main table th,
+main#main table td {
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+    min-width: 120px;
+    color: #f8f8ff;
+}
+
+main#main table th {
+    background: rgba(40, 15, 60, 0.9);
+    font-weight: 700;
+}
+
+main#main table tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.78);
+}
+
+main#main table tr:first-child th:first-child {
+    border-top-left-radius: 0.75rem;
+}
+
+main#main table tr:first-child th:last-child {
+    border-top-right-radius: 0.75rem;
+}
+
+main#main table tr:last-child td:first-child {
+    border-bottom-left-radius: 0.75rem;
+}
+
+main#main table tr:last-child td:last-child {
+    border-bottom-right-radius: 0.75rem;
+}
+
+main#main table caption {
+    caption-side: top;
+    padding: 0.75rem 0.9rem;
+    color: #f8f8ff;
+    text-align: left;
+    font-weight: 600;
+}
+
+main#main ul,
+main#main ol {
+    margin: 1rem 0 1rem 1.25rem;
+    padding: 0;
+}
+
+main#main ul li,
+main#main ol li {
+    margin: 0.55rem 0;
+    line-height: 1.75;
+}
+
+main#main ul li {
+    position: relative;
+    padding-left: 1.35rem;
+}
+
+main#main ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: #c4b5fd;
+    font-size: 1.15rem;
+    line-height: 1;
+}
+
+main#main ol li {
+    padding-left: 0;
+}
+
+main#main ol {
+    counter-reset: list-counter;
+}
+
+main#main ol li {
+    position: relative;
+    padding-left: 2rem;
+}
+
+main#main ol li::before {
+    counter-increment: list-counter;
+    content: counter(list-counter) '.';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #c4b5fd;
+    font-weight: 700;
+}
+
 .site-footer,
 .site-footer * {
-    font-family: 'Julee', cursive;
+    font-family: 'Alegreya', cursive;
 }
 
 .logo {
