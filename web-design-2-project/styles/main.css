@@ -1,3 +1,16 @@
+@font-face{
+    font-family: "ITC Tempus Sans W02 Regular";
+    src: url("https://db.onlinewebfonts.com/t/eb6b0dff01f56021ee7bbfd0328b8b51.eot");
+    src: url("https://db.onlinewebfonts.com/t/eb6b0dff01f56021ee7bbfd0328b8b51.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/eb6b0dff01f56021ee7bbfd0328b8b51.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/eb6b0dff01f56021ee7bbfd0328b8b51.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/eb6b0dff01f56021ee7bbfd0328b8b51.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/eb6b0dff01f56021ee7bbfd0328b8b51.svg#ITC Tempus Sans W02 Regular")format("svg");
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+}
+
 body {
     display: flex;
     flex-direction: column;
