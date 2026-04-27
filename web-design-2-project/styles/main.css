@@ -114,6 +114,28 @@ a:active {
     color: #c4b5fd;
 }
 
+.hero-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-copy,
+.hero-visual {
+    flex: 1 1 320px;
+    min-width: 280px;
+}
+
+.hero-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1rem;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.2);
+}
+
 .map-preview {
     max-width: 420px;
     margin: 1rem auto;

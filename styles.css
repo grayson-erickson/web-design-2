@@ -5,3 +5,24 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.hero-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-copy,
+.hero-visual {
+    flex: 1 1 320px;
+    min-width: 280px;
+}
+
+.hero-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1rem;
+}
