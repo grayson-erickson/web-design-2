@@ -20,9 +20,33 @@ body {
     min-width: 280px;
 }
 
+.hero-visual {
+    overflow: hidden;
+    clip-path: polygon(
+        35px 0,
+        calc(100% - 35px) 0,
+        100% 35px,
+        100% calc(100% - 35px),
+        calc(100% - 35px) 100%,
+        35px 100%,
+        0 calc(100% - 35px),
+        0 35px
+    );
+    -webkit-clip-path: polygon(
+        15px 0,
+        calc(100% - 35px) 0,
+        100% 35px,
+        100% calc(100% - 35px),
+        calc(100% - 35px) 100%,
+        35px 100%,
+        0 calc(100% - 35px),
+        0 15px
+    );
+}
+
 .hero-visual img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 1rem;
+    border-radius: 0;
 }
