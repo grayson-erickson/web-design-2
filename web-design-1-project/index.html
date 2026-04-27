@@ -1,47 +1,81 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Grayson's Worldbuilding Portfolio: Home Page</title>
+  <title>Verdenzye Worldbuilding Portfolio: Home Page</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="" />
+  <meta name="description" content="Web Design 1 portfolio for the Verdenzye world." />
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-  <!-- header table start -->
-  <table class="site-header">
-     <tr>
-	    <td><img src="images/logo.png" width="256px" /></td>
-		 <td><h2  class="site-title">A World After Humans: A World Design Portfolio by Grayson</h2></td>
-  </table>
-    <!-- header table end -->
-  <hr />
+  <header class="site-header">
+    <img class="logo-image" src="images/logo.png" alt="Verdenzye portfolio logo" width="220" />
+    <h1 class="site-title">A World After Humans: A World Design Portfolio by Grayson</h1>
+  </header>
 
-  <h3>Welcome to my worldbuilding portfolio!</h3>
-  
-  <!-- page contents start -->
-  <p>
-  Oh, and don't mind the old logo. That was for something I was going to do before this portfolio.
-  </p>
-  <p>
-  ...
-  </p>
-  <!-- page contents end -->
-  <hr />
-  <!-- footer table start -->
-  <table class="site-footer">
-    <tr>
-     <td>
-	     <ul>
-				<li><a href="abouttheauthor.html">About the author (me)</a></li>
-				<li><a href="biology.html">Half-Human biology (wip)</a></li>
-				<li><a href="history.html">Verdenzic history</a></li>
-				<li><a href="mapsandgeography.html">Verdenzye maps and geography</a></li>
-				<li><a href="culturesandreligion.html">Various cultures</a></li>
-				<li><a href="wildlife.html">Verdenzic wildlife</a></li>
-		  </ul>
-	  </td>
-  </table>
-  <!-- footer table end -->
-  </body>
+  <div class="page-layout">
+    <nav class="sidebar" aria-label="Primary site navigation">
+      <h2>Site menu</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="abouttheauthor.html">About the author</a></li>
+        <li><a href="biology.html">Half-Human biology</a></li>
+        <li><a href="history.html">Verdenzic history</a></li>
+        <li><a href="mapsandgeography.html">Maps & Geography</a></li>
+        <li><a href="culturesandreligion.html">Cultures & Religion</a></li>
+        <li><a href="wildlife.html">Verdenzic wildlife</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <h3>Welcome to my worldbuilding portfolio!</h3>
+      <p>This home page is built with a responsive layout and a floating left-side menu. It uses the same assets and font style as the other pages in this folder.</p>
+      <p>Use the menu on the left or the table below to jump to any section of the Verdenzye project.</p>
+
+      <table class="page-links">
+        <caption>Web Design 1 page links</caption>
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="index.html">Home</a></td>
+            <td>Responsive landing page with menu and page overview.</td>
+          </tr>
+          <tr>
+            <td><a href="abouttheauthor.html">About the author</a></td>
+            <td>Information about the creator and the portfolio's inspiration.</td>
+          </tr>
+          <tr>
+            <td><a href="biology.html">Half-Human biology</a></td>
+            <td>Details about the biology and anatomy of the Verdenzic species.</td>
+          </tr>
+          <tr>
+            <td><a href="history.html">Verdenzic history</a></td>
+            <td>Historical context and major events in the Verdenzye world.</td>
+          </tr>
+          <tr>
+            <td><a href="mapsandgeography.html">Maps & Geography</a></td>
+            <td>Maps, regions, and geography for the Verdenzye setting.</td>
+          </tr>
+          <tr>
+            <td><a href="culturesandreligion.html">Cultures & Religion</a></td>
+            <td>Descriptions of cultures, beliefs, and religions in Verdenzye.</td>
+          </tr>
+          <tr>
+            <td><a href="wildlife.html">Wildlife</a></td>
+            <td>Information about the fauna and ecosystems of Verdenzye.</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Grayson Erickson</p>
+  </footer>
+</body>
 </html>
