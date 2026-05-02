@@ -348,7 +348,7 @@ main#main ol li::before {
     outline: none;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px), (orientation: portrait) and (max-width: 768px) {
     /* Show the hamburger button */
     .site-nav-toggle {
         display: flex;
