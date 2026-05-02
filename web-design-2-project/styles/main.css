@@ -319,7 +319,7 @@ main#main ol li::before {
     width: 100%;
     box-sizing: border-box;
     background-image: url("../static/svg/index-link-box.svg");
-    background-color: rgba(20, 5, 35, 0.85);
+    background-color: transparent;
     background-size: 100% 100%;
     background-position: top left;
     background-repeat: no-repeat;
@@ -349,6 +349,7 @@ main#main ol li::before {
     vertical-align: top;
     color: #f8f8ff;
     min-width: 0;
+    background: transparent;
 }
 
 /* Left cell — image slot, fixed width, collapses gracefully when empty */
