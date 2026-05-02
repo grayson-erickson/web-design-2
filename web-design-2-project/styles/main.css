@@ -125,7 +125,6 @@ a:active {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 0;
     box-shadow: 0 18px 40px rgba(15, 23, 42, 0.2);
 }
 
@@ -139,7 +138,6 @@ a:active {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 0.75rem;
     border: 2px solid rgba(227, 204, 255, 0.65);
     box-shadow: 0 12px 24px rgba(15, 23, 42, 0.16);
 }
@@ -165,7 +163,6 @@ a:active {
     max-height: 100%;
     width: auto;
     height: auto;
-    border-radius: 0.75rem;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
@@ -190,7 +187,6 @@ main#main table {
     border-spacing: 0;
     margin: 1.5rem 0;
     background: transparent;
-    border-radius: 0.85rem;
     overflow: hidden;
 }
 
@@ -217,19 +213,15 @@ main#main table tr:nth-child(even) {
 }
 
 main#main table tr:first-child th:first-child {
-    border-top-left-radius: 0.75rem;
 }
 
 main#main table tr:first-child th:last-child {
-    border-top-right-radius: 0.75rem;
 }
 
 main#main table tr:last-child td:first-child {
-    border-bottom-left-radius: 0.75rem;
 }
 
 main#main table tr:last-child td:last-child {
-    border-bottom-right-radius: 0.75rem;
 }
 
 main#main table caption {
@@ -293,6 +285,116 @@ main#main ol li::before {
 .site-footer,
 .site-footer * {
     font-family: 'Alegreya', cursive;
+}
+
+/* ── Index Page Card List ───────────────────────────────────────────────── */
+
+/* Invisible wrapper table — single column, fills the content area */
+.page-card-list {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    background: transparent;
+    margin: 1.5rem 0 0 0;
+    /* Override the main#main table styles */
+    display: table;
+    overflow-x: unset;
+    border-radius: 0;
+    overflow: unset;
+}
+
+.page-card-list > tbody > tr {
+    background: transparent;
+}
+
+.page-card-list > tbody > tr > td {
+    padding: 0 0 1rem 0;
+    border: none;
+    min-width: 0;
+    color: inherit;
+}
+
+/* Card container — SVG background */
+.page-card {
+    width: 100%;
+    box-sizing: border-box;
+    background-image: url("../static/svg/index-link-box.svg");
+    background-color: rgba(20, 5, 35, 0.85);
+    background-size: 100% 100%;
+    background-position: top left;
+    background-repeat: no-repeat;
+    min-height: 120px;
+}
+
+/* Inner 2-cell table — image left, text right, no border */
+.page-card-inner {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    background: transparent;
+    /* Override main#main table styles */
+    display: table;
+    overflow-x: unset;
+    border-radius: 0;
+    overflow: unset;
+    margin: 0;
+}
+
+.page-card-inner > tr {
+    background: transparent;
+}
+
+.page-card-inner > tr > td {
+    border: none;
+    vertical-align: top;
+    color: #f8f8ff;
+    min-width: 0;
+}
+
+/* Left cell — image slot, fixed width, collapses gracefully when empty */
+.page-card-image {
+    width: 160px;
+    min-width: 80px;
+    max-width: 200px;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.page-card-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Right cell — text content */
+.page-card-text {
+    padding: 0.85rem 1rem;
+}
+
+.page-card-text h3 {
+    margin: 0 0 0.4rem 0;
+    font-family: 'Eagle Lake', cursive;
+    font-size: 1.05rem;
+    color: #e3ccff;
+}
+
+.page-card-text h3 a {
+    color: #e3ccff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.page-card-text h3 a:hover,
+.page-card-text h3 a:focus {
+    color: #c4b5fd;
+}
+
+.page-card-text p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #f8f8ff;
 }
 
 /* ── Site Nav Hamburger (mobile) ────────────────────────────────────────── */
