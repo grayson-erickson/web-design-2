@@ -1,4 +1,17 @@
+/* ============================================================
+   fonts
+   pulling in eagle lake for headings/nav and alegreya for body text.
+   both are from google fonts so they need an internet connection to load.
+   ============================================================ */
+
 @import url('https://fonts.googleapis.com/css2?family=Eagle+Lake:wght@400;600;700&family=Alegreya&display=swap');
+
+
+/* ============================================================
+   base / global reset
+   sets up the full-page background, default font, and text color.
+   the svg background covers the whole viewport and stays fixed.
+   ============================================================ */
 
 body {
     position: relative;
@@ -15,6 +28,13 @@ body {
     background-color: #f8fafc;
 }
 
+
+/* ============================================================
+   global link styles
+   default link color is white, hover/focus shifts to the accent purple.
+   no underlines anywhere on the site.
+   ============================================================ */
+
 a {
     color: #ffffff;
     text-decoration: none;
@@ -25,6 +45,14 @@ A:focus,
 a:active {
     color: #c4b5fd;
 }
+
+
+/* ============================================================
+   site header
+   sticky at the top so it stays visible while scrolling.
+   the inner container is a flex row that wraps on small screens.
+   dark background keeps it readable over the svg backdrop.
+   ============================================================ */
 
 .site-header {
     position: sticky;
@@ -52,6 +80,7 @@ a:active {
     flex-wrap: wrap;
 }
 
+/* the svg site title image in the header — scales fluidly */
 .site-title-image {
     width: auto;
     max-width: 100%;
@@ -62,6 +91,7 @@ a:active {
     flex: 1 1 320px;
 }
 
+/* page heading inside the header (h1) */
 .site-header .logo {
     margin: 0;
     text-align: center;
@@ -73,14 +103,12 @@ a:active {
     font-family: 'Eagle Lake', cursive;
 }
 
-.site-nav a {
-    display: block;
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0.75rem 0;
-    font-weight: 600;
-    font-family: 'Eagle Lake', cursive;
-}
+
+/* ============================================================
+   page layout
+   two-column css grid on desktop: fixed sidebar nav + flexible main area.
+   the sidebar collapses on mobile via the media query further down.
+   ============================================================ */
 
 .page-layout {
     display: grid;
@@ -90,6 +118,13 @@ a:active {
     min-height: 0;
     padding: 1.5rem;
 }
+
+
+/* ============================================================
+   left sidebar navigation
+   sticky so it stays in view while scrolling long pages.
+   squared-off corners to match the rest of the site aesthetic.
+   ============================================================ */
 
 .site-nav {
     background: rgba(0, 0, 0, 0.92);
@@ -101,12 +136,14 @@ a:active {
     align-self: start;
 }
 
+/* nav links — eagle lake font, lavender color */
 .site-nav a {
     display: block;
     color: #e3ccff;
     text-decoration: none;
     margin: 0.75rem 0;
     font-weight: 600;
+    font-family: 'Eagle Lake', cursive;
 }
 
 .site-nav a:hover,
@@ -115,71 +152,152 @@ a:active {
     color: #c4b5fd;
 }
 
+/* dividers between nav groups — subtle accent line */
 .site-nav hr {
     border: none;
     border-top: 1px solid rgba(196, 181, 253, 0.25);
     margin: 0.6rem 0;
 }
 
-.hero-visual img {
-    width: 100%;
-    height: auto;
-    display: block;
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.2);
-}
 
-.map-preview {
-    max-width: 420px;
-    margin: 1rem auto;
-    cursor: zoom-in;
-}
+/* ============================================================
+   hamburger toggle button (mobile nav)
+   hidden by default on desktop. the three lines are drawn with
+   css pseudo-elements so no image is needed.
+   ============================================================ */
 
-.map-preview img.thumb {
-    width: 100%;
-    height: auto;
-    display: block;
-    border: 2px solid rgba(227, 204, 255, 0.65);
-    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.16);
-}
-
-.map-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.92);
+.site-nav-toggle {
     display: none;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
-    z-index: 300;
-    cursor: zoom-out;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
 }
 
-.map-overlay.active {
-    display: flex;
+/* middle bar of the hamburger icon */
+.site-nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #e3ccff;
+    border-radius: 0;
+    position: relative;
+    transition: background 0.2s ease;
 }
 
-.map-overlay img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+/* top and bottom bars via pseudo-elements */
+.site-nav-toggle span::before,
+.site-nav-toggle span::after {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #e3ccff;
+    border-radius: 0;
+    position: absolute;
+    left: 0;
+    transition: background 0.2s ease;
 }
 
-.map-overlay .caption {
-    margin-top: 1rem;
-    color: #f8f8ff;
-    text-align: center;
-    font-size: 1rem;
-    max-width: 900px;
+.site-nav-toggle span::before { top: -7px; }
+.site-nav-toggle span::after  { top:  7px; }
+
+/* accent color on hover/focus */
+.site-nav-toggle:hover span,
+.site-nav-toggle:hover span::before,
+.site-nav-toggle:hover span::after,
+.site-nav-toggle:focus span,
+.site-nav-toggle:focus span::before,
+.site-nav-toggle:focus span::after {
+    background: #c4b5fd;
+    outline: none;
 }
+
+
+/* ============================================================
+   mobile responsive layout
+   triggers on narrow viewports (under 480px) or portrait orientation
+   on phones/tablets (portrait + under 768px wide).
+   collapses the grid to single column and slides the nav in from the left.
+   ============================================================ */
+
+@media (max-width: 480px), (orientation: portrait) and (max-width: 768px) {
+
+    /* show the hamburger button */
+    .site-nav-toggle {
+        display: flex;
+    }
+
+    /* single column layout */
+    .page-layout {
+        grid-template-columns: 1fr;
+        padding: 0.75rem;
+    }
+
+    /* nav slides in from the left as a fixed overlay panel */
+    .site-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80vw;
+        max-width: 280px;
+        height: 100vh;
+        overflow-y: auto;
+        z-index: 200;
+        padding: 1.25rem 1rem;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.6);
+        transform: translateX(-100%);
+        visibility: hidden;
+        transition: transform 0.25s ease, visibility 0.25s ease;
+        align-self: auto;
+    }
+
+    /* nav is visible when the toggle is active */
+    .site-nav.site-nav-open {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    /* dim overlay behind the open nav panel */
+    body.site-nav-open::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 199;
+    }
+}
+
+
+/* ============================================================
+   main content area
+   fills the remaining grid column. min-width: 0 prevents overflow
+   issues inside css grid.
+   ============================================================ */
 
 main#main {
     min-height: 0;
     min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
-main#main table {
+
+/* ============================================================
+   lore tables (wildlife, history, cultures, etc.)
+   the :not() selectors exclude the index page card tables so they
+   don't accidentally inherit these styles.
+   dark rows, purple headers, subtle borders — matches the wildlife page.
+   ============================================================ */
+
+main#main table:not(.page-card-list):not(.page-card-inner) {
     width: 100%;
     display: block;
     overflow-x: auto;
@@ -190,12 +308,12 @@ main#main table {
     overflow: hidden;
 }
 
-main#main table tr {
+main#main table:not(.page-card-list):not(.page-card-inner) tr {
     background: rgba(0, 0, 0, 0.88);
 }
 
-main#main table th,
-main#main table td {
+main#main table:not(.page-card-list):not(.page-card-inner) th,
+main#main table:not(.page-card-list):not(.page-card-inner) td {
     padding: 0.85rem 1rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
     text-align: left;
@@ -203,34 +321,31 @@ main#main table td {
     color: #f8f8ff;
 }
 
-main#main table th {
+/* header row gets a deeper purple background */
+main#main table:not(.page-card-list):not(.page-card-inner) th {
     background: rgba(40, 15, 60, 0.9);
     font-weight: 700;
 }
 
-main#main table tr:nth-child(even) {
+/* alternating row shading */
+main#main table:not(.page-card-list):not(.page-card-inner) tr:nth-child(even) {
     background: rgba(0, 0, 0, 0.78);
 }
 
-main#main table tr:first-child th:first-child {
-}
-
-main#main table tr:first-child th:last-child {
-}
-
-main#main table tr:last-child td:first-child {
-}
-
-main#main table tr:last-child td:last-child {
-}
-
-main#main table caption {
+main#main table:not(.page-card-list):not(.page-card-inner) caption {
     caption-side: top;
     padding: 0.75rem 0.9rem;
     color: #f8f8ff;
     text-align: left;
     font-weight: 600;
 }
+
+
+/* ============================================================
+   lists inside main content
+   custom bullet styling using ::before pseudo-elements.
+   accent purple dots for unordered, numbered for ordered.
+   ============================================================ */
 
 main#main ul,
 main#main ol {
@@ -247,6 +362,8 @@ main#main ol li {
 main#main ul li {
     position: relative;
     padding-left: 1.35rem;
+    padding-left: 0;
+    margin: 0;
 }
 
 main#main ul li::before {
@@ -282,12 +399,84 @@ main#main ol li::before {
     font-weight: 700;
 }
 
+
+/* ============================================================
+   map preview + lightbox (maps & geography page)
+   thumbnail images are clickable and open a full-screen overlay.
+   the overlay fades in/out and closes on click or escape key.
+   ============================================================ */
+
+.hero-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.2);
+}
+
+.map-preview {
+    max-width: 420px;
+    margin: 1rem auto;
+    cursor: zoom-in;
+}
+
+.map-preview img.thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid rgba(227, 204, 255, 0.65);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.16);
+}
+
+/* full-screen overlay — hidden by default */
+.map-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 300;
+    cursor: zoom-out;
+}
+
+.map-overlay.active {
+    display: flex;
+}
+
+.map-overlay img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.map-overlay .caption {
+    margin-top: 1rem;
+    color: #f8f8ff;
+    text-align: center;
+    font-size: 1rem;
+    max-width: 900px;
+}
+
+
+/* ============================================================
+   site footer
+   just sets the font — layout is handled by the html structure.
+   ============================================================ */
+
 .site-footer,
 .site-footer * {
     font-family: 'Alegreya', cursive;
 }
 
-/* ── Index utility link (Assets button) ─────────────────────────────────── */
+
+/* ============================================================
+   utility link button (e.g. the "assets" button on the index page)
+   styled like a nav link but with a visible border to make it feel
+   more like a button. squared corners to match the site aesthetic.
+   ============================================================ */
 
 .index-utility-link {
     display: inline-block;
@@ -311,80 +500,70 @@ main#main ol li::before {
     outline: none;
 }
 
-/* ── Index Page Card List ───────────────────────────────────────────────── */
 
-/* Invisible wrapper table — single column, fills the content area */
+/* ============================================================
+   index page card list
+   flex column of cards that each have an svg background image,
+   a square sigil image on the left, and text on the right.
+   the svg background is an absolutely positioned img element
+   so it stretches reliably without css background-size issues.
+   ============================================================ */
+
+/* outer container — stacks cards vertically, full width */
 .page-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     width: 100%;
-    border-collapse: collapse;
-    border: none;
-    background: transparent;
+    max-width: 100%;
     margin: 1.5rem 0 0 0;
-    /* Override the main#main table styles */
-    display: table;
-    overflow-x: unset;
-    border-radius: 0;
-    overflow: unset;
-}
-
-.page-card-list > tbody > tr {
-    background: transparent;
-}
-
-.page-card-list > tbody > tr > td {
-    padding: 0 0 1rem 0;
-    border: none;
-    min-width: 0;
-    color: inherit;
-}
-
-/* Card container — SVG background */
-.page-card {
-    width: 100%;
     box-sizing: border-box;
-    background-image: url("../static/svg/index-link-box.svg");
-    background-color: transparent;
-    background-size: 100% 100%;
-    background-position: top left;
-    background-repeat: no-repeat;
-    min-height: 120px;
+    align-self: stretch;
 }
 
-/* Inner 2-cell table — image left, text right, no border */
-.page-card-inner {
+/* individual card — flex row with relative positioning for the bg image */
+.page-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    position: relative;
     width: 100%;
-    border-collapse: collapse;
-    border: none;
-    background: transparent;
-    /* Override main#main table styles */
-    display: table;
-    overflow-x: unset;
-    border-radius: 0;
-    overflow: unset;
-    margin: 0;
-}
-
-.page-card-inner > tr {
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 120px;
     background: transparent;
 }
 
-.page-card-inner > tr > td {
-    border: none;
-    vertical-align: top;
-    color: #f8f8ff;
-    min-width: 0;
-    background: transparent;
+/* svg background — absolutely fills the card behind all content */
+.page-card-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+    pointer-events: none;
+    object-fit: fill;
 }
 
-/* Left cell — square image slot that scales with the card */
+/* both content cells sit above the background */
+.page-card-image,
+.page-card-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* left cell — square image that scales with the card height */
 .page-card-image {
+    flex: 0 0 120px;
     width: 120px;
     min-width: 60px;
-    max-width: 120px;
     aspect-ratio: 1 / 1;
     padding: 0;
-    text-align: center;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .page-card-image img {
@@ -394,9 +573,12 @@ main#main ol li::before {
     object-fit: contain;
 }
 
-/* Right cell — text content */
+/* right cell — takes up all remaining horizontal space */
 .page-card-text {
+    flex: 1 1 0;
     padding: 0.85rem 1rem;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .page-card-text h3 {
@@ -424,107 +606,25 @@ main#main ol li::before {
     color: #f8f8ff;
 }
 
-/* ── Site Nav Hamburger (mobile) ────────────────────────────────────────── */
-
-.site-nav-toggle {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    flex-shrink: 0;
-    position: relative;
+/* header label above the asset list on assets.html */
+.asset-list-header {
+    font-family: 'Eagle Lake', cursive;
+    font-size: 1rem;
+    color: #e3ccff;
+    border-bottom: 1px solid rgba(196, 181, 253, 0.3);
+    padding-bottom: 0.5rem;
+    margin: 1rem 0 0.5rem 0;
 }
 
-/* Draw the three hamburger lines using box-shadow on a single element */
-.site-nav-toggle span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: #e3ccff;
-    border-radius: 0;
-    position: relative;
-    transition: background 0.2s ease;
-}
 
-.site-nav-toggle span::before,
-.site-nav-toggle span::after {
-    content: '';
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: #e3ccff;
-    border-radius: 0;
-    position: absolute;
-    left: 0;
-    transition: background 0.2s ease;
-}
+/* ============================================================
+   l2 section submenu (in-page navigation bar)
+   horizontal bar of anchor links for jumping between sections
+   on a single page. collapses to a dropdown on narrow/portrait viewports.
+   used on jobclasses.html and any other page with subsections.
+   ============================================================ */
 
-.site-nav-toggle span::before { top: -7px; }
-.site-nav-toggle span::after  { top:  7px; }
-
-.site-nav-toggle:hover span,
-.site-nav-toggle:hover span::before,
-.site-nav-toggle:hover span::after,
-.site-nav-toggle:focus span,
-.site-nav-toggle:focus span::before,
-.site-nav-toggle:focus span::after {
-    background: #c4b5fd;
-    outline: none;
-}
-
-@media (max-width: 480px), (orientation: portrait) and (max-width: 768px) {
-    /* Show the hamburger button */
-    .site-nav-toggle {
-        display: flex;
-    }
-
-    /* Collapse the page layout to single column */
-    .page-layout {
-        grid-template-columns: 1fr;
-        padding: 0.75rem;
-    }
-
-    /* Hide the nav off-screen by default — keep it in the DOM so transition works */
-    .site-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 80vw;
-        max-width: 280px;
-        height: 100vh;
-        overflow-y: auto;
-        z-index: 200;
-        padding: 1.25rem 1rem;
-        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.6);
-        transform: translateX(-100%);
-        visibility: hidden;
-        transition: transform 0.25s ease, visibility 0.25s ease;
-        /* Override the sticky positioning from desktop */
-        align-self: auto;
-    }
-
-    .site-nav.site-nav-open {
-        transform: translateX(0);
-        visibility: visible;
-    }
-
-    /* Dim overlay behind the open nav */
-    body.site-nav-open::after {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 199;
-    }
-}
-
-/* ── L2 Section Submenu ─────────────────────────────────────────────────── */
-
+/* container bar */
 .section-subnav {
     position: relative;
     margin: 0 0 1.5rem 0;
@@ -532,7 +632,7 @@ main#main ol li::before {
     border-bottom: 2px solid rgba(196, 181, 253, 0.4);
 }
 
-/* Hamburger toggle button — hidden on wide viewports */
+/* mobile toggle button — hidden on wide viewports */
 .section-subnav-toggle {
     display: none;
     width: 100%;
@@ -557,7 +657,7 @@ main#main ol li::before {
     outline: none;
 }
 
-/* Link container — horizontal row on wide viewports */
+/* link row — horizontal scroll if there are too many items */
 .section-subnav-links {
     display: flex;
     flex-direction: row;
@@ -568,6 +668,7 @@ main#main ol li::before {
     scrollbar-color: rgba(196, 181, 253, 0.4) transparent;
 }
 
+/* individual section link buttons */
 nav.section-subnav a {
     display: flex;
     align-items: center;
@@ -597,19 +698,22 @@ nav.section-subnav a:focus {
     outline: none;
 }
 
+/* active state — set by js when a section link is clicked */
 nav.section-subnav a.active {
     background: rgba(40, 15, 60, 0.9);
     color: #c4b5fd;
     border-bottom: 2px solid #c4b5fd;
 }
 
-/* ── Narrow / portrait: collapse to hamburger ── */
+/* on narrow/portrait viewports, collapse to a vertical dropdown */
 @media (max-width: 600px), (orientation: portrait) {
+
     .section-subnav-toggle {
         display: flex;
         align-items: center;
     }
 
+    /* links hidden until toggle is activated */
     .section-subnav-links {
         display: none;
         flex-direction: column;
@@ -620,6 +724,7 @@ nav.section-subnav a.active {
         display: flex;
     }
 
+    /* vertical layout for each link */
     nav.section-subnav a {
         height: auto;
         padding: 0.75rem 1.25rem;
@@ -629,12 +734,21 @@ nav.section-subnav a.active {
         white-space: normal;
     }
 
+    /* active state uses a left border instead of bottom border in vertical mode */
     nav.section-subnav a.active {
         border-bottom: none;
         border-left: 3px solid #c4b5fd;
         padding-left: calc(1.25rem - 3px);
     }
 }
+
+
+/* ============================================================
+   legacy template classes
+   these are leftover from the original layout.html template.
+   not actively used on any live page but keeping them here
+   so nothing breaks if they show up somewhere.
+   ============================================================ */
 
 .logo {
     grid-area: logo;
