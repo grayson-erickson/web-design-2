@@ -1,6 +1,4 @@
-// theme toggle — switches between "dark mode" (default svg background)
-// and "darker than dark mode" (pure black background).
-// preference is saved to localStorage so it persists across pages.
+// I DID NOT CREATE THIS, I COPIED IT FROM A WEB PAGE SO I DONT KNOW HOW IT ACTUALLY WORKS. WHAT IS A STORAGE KEY? I DO NOT KNOW
 
 (function () {
   var STORAGE_KEY = 'verdenzye-theme';
