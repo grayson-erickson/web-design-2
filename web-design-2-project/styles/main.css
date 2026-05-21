@@ -744,6 +744,47 @@ nav.section-subnav a.active {
 
 
 /* ============================================================
+   theme toggle
+   "darker than dark mode" replaces the svg background with pure black.
+   the button lives at the bottom of the left nav on every page.
+   preference is saved to localStorage via theme-toggle.js.
+   ============================================================ */
+
+/* pure black background mode */
+body.theme-darker {
+    background-image: none;
+    background-color: #000000;
+}
+
+/* the toggle button itself */
+.theme-toggle-btn {
+    display: block;
+    width: 100%;
+    margin-top: 1.25rem;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border: 1px solid rgba(196, 181, 253, 0.3);
+    border-radius: 0;
+    color: #c4b5fd;
+    font-family: 'Eagle Lake', cursive;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.theme-toggle-btn:hover,
+.theme-toggle-btn:focus {
+    background: rgba(196, 181, 253, 0.1);
+    border-color: #c4b5fd;
+    color: #ffffff;
+    outline: none;
+}
+
+
+/* ============================================================
    legacy template classes
    these are leftover from the original layout.html template.
    not actively used on any live page but keeping them here
